@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Gogaga Holidays</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gogaga Holidays</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Holiday Packages</a></li>
+                <li><a href="#flights">Flight Booking</a></li>
+                <li><a href="#hotels">Hotel Booking</a></li>
+                <li><a href="#collections">Package Collections</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <h2>Welcome to Gogaga Holidays</h2>
+        <p>Your ultimate destination for amazing holiday experiences!</p>
+    </section>
+    <section id="packages">
+        <h2>Holiday Packages</h2>
+        <div class="package">
+            <img src="package1.jpg" alt="Package 1">
+            <h3>Package 1</h3>
+            <p>Description of Package 1</p>
+            <button>Book Now</button>
+        </div>
+        <div class="package">
+            <img src="package2.jpg" alt="Package 2">
+            <h3>Package 2</h3>
+            <p>Description of Package 2</p>
+            <button>Book Now</button>
+        </div>
+        <!-- Add more packages as needed -->
+    </section>
+    <section id="flights">
+        <h2>Flight Booking</h2>
+        <div class="flight-search">
+            <h1 class="">Book Flight Tickets</h1>
+            <div class="flight-search-form">
+                <form class="form-inline" role="form" method="post" id="form-inline" autocomplete="disabled">
+                    <div class="flight_search_handler">
+                        <div class="row">
+                            <label class="radio-inline trip-type redio-bottom selected" id="round" data-bind="click: function (){return $root.setClassOfTravel('round')}">
+                                <input type="radio" class="round" name="flightTrip" checked="checked" id="roundIn">Round Trip
+                            </label>
+                            <label class="radio-inline trip-type redio-bottom" id="oneWay" data-bind="click: function (){return $root.setClassOfTravel('oneWay')}">
+                                <input type="radio" class="oneWay" name="flightTrip" id="oneWayIn">One way
+                            </label>
+                            <label class="radio-inline trip-type redio-bottom" id="multi" data-bind="click: function (){return $root.setClassOfTravel('multi')}">
+                                <input type="radio" class="multi" name="flightTrip" id="multiIn">Multi-City
+                            </label>
+                        </div>
+                    </div>
+                    <input type="hidden" value="1" name="noOfTraveller" id="noOfTraveller">
+                    <input type="hidden" value="1" name="noOfAdult" id="noOfAdult">
+                    <input type="hidden" value="0" name="noOfChild" id="noOfChild">
+                    <input type="hidden" value="0" name="noOfInf" id="noOfInf">
+                    <input type="hidden" value="" name="multiDateSet" id="multiDateSet">
+                    <input type="hidden" value="" name="multiDateReturn" id="multiDateReturn">
+                    <input type="hidden" value="" name="multiCity" id="multiCity">
+                    <div id="flight-search-one">
+                        <div class="show_all_data_mobile">&lt; </div>
+                        <div id="flight-search" class="mtop10 one-way">
+                            <div class="row round-way">
+                                <div class="form-group from-city-value float-left posrel col-lg-3 col-md-3 col-sm-3 col-12">
+                                    <span class="search_click_data tc-search hide"></span>
+                                    <input type="text" autofocus="false" onclick="this.focus(); this.select()" tabindex="1" autocomplete="disabled" class="form-control autoSearch from-city" data-key="airport" data-value="" id="input-search-from" placeholder="From: City or Airport Code">
+                                    <span class="cursor-pointer valueChange">
+                                        <span class="tc-city-arrow"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+                                    </span>
+                                    <span class="field-error"></span>
+                                </div>
+
+                                <div class="form-group to-city-value float-left col-lg-3 col-md-3 col-sm-3 col-12">
+                                    <span class="search_click_data tc-search hide"></span>
+                                    <input type="text" onclick="this.focus();
+                                        this.select()" class="form-control autoSearch to-city" data-key="airport" tabindex="2" data-value="" name="inputsearchto" id="input-search-to" placeholder="To: City or Airport Code" autocomplete="disabled">
+                                    <span class="field-error"></span>
+                                </div>
+                                <div class="date-single-wrap">
+                                    <div class="form-group has-feedback-left float-left posrel col-lg-6 col-md-6 col-sm-6 col-5 from_date_flight"><i class="form-control-feedback depart"></i> <input required="required" tabindex="3" placeholder="Depart On" class="form-control depart-cal hasDatepicker" readonly="" type="text" id="dp1710479730944"><input type="text" hidden="" value="" id="depart-cal"><span class="field-error"></span></div>
+                                    <span class="hyphen">-</span>
+                                    <div class="form-group has-feedback-left float-left posrel col-lg-6 col-md-6 col-sm-6 col-7 to_date_flight">
+
+                                        <i class="form-control-feedback returnIcon"></i>
+                                        <input required="required" class="form-control return hasDatepicker" data-value="" name="return" readonly="" tabindex="4" placeholder="Return on" type="text" autocomplete="disabled" id="dp1710479730945">
+                                        <input type="text" hidden="" value="" id="return">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="flight-search-multi" class="closed" style="display: none;">
+                        <div class="show_all_data_mobile">&lt; </div>
+                        <div id="multi-flight-search">
+                            <div id="addFlightDetails" data-bind="foreach: $root.addSearchDetails.searchTrip">
+                                <div class="top-multi travellers-search-form-rows round-way">
+                                    <div class="form-group from-city-value float-left posrel col-lg-4 col-12 col-md-4">
+                                        <input type="text" class="form-control from-city autoSearch" data-key="airport" onclick="this.focus();
+                                                this.select()" data-value="" placeholder="From: City or Airport Code" autocomplete="disabled" data-bind="value: $data.fromCity,attr:{'data-value':$data.fromCity,'data-code':$data.fromCityCode,id:'fromCity_'+ko.toJS($index),name:'fromCity_'+ko.toJS($index),'data-index':ko.toJS($index)}" data-code="" id="fromCity_0" name="fromCity_0" data-index="0">
+                                        <span class="cursor-pointer valueChange">
+                                            <span class="tc-city-arrow"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+                                        </span>
+                                        <span class="field-error"></span>
+                                    </div>
+
+                                    <div class="form-group to-city-value  float-left col-lg-4 col-12 col-md-4">
+                                        <input type="text" class="form-control to-city autoSearch" data-key="airport" onclick="this.focus();
+                                                this.select()" data-value="" placeholder="To: City or Airport Code" autocomplete="disabled" data-bind="value: $data.toCity,attr:{'data-value':$data.toCity,'data-code':$data.toCityCode,id:'toCity_'+ko.toJS($index),name:'toCity_'+ko.toJS($index),'data-index':ko.toJS($index)}" data-code="" id="toCity_0" name="toCity_0" data-index="0">
+                                        <span class="field-error"></span>
+                                    </div>
+                                    <div class="form-group has-feedback-left float-left posrel col-lg-4 col-12 col-md-4 datetrigger">
+                                        <i class="form-control-feedback depart"></i>
+                                        <input required="required" data-value="" readonly="" placeholder="Depart on" type="text" autocomplete="disabled" data-bind="value: $data.departDate,attr:{'data-value':$data.depart,class:'form-control depart_'+ko.toJS($index),name:'depart_'+ko.toJS($index),'data-index':ko.toJS($index)}" class="form-control depart_0" name="depart_0" data-index="0">
+                                        <input type="text" hidden="" value="" data-bind="value:$data.depart, attr:{id:'depart_'+ko.toJS($index)} " id="depart_0">
+                                        <span class="field-error"></span>
+                                    </div>
+                                </div>
+                                <!-- ko if: $root.addSearchDetails.searchTrip().length>2 && ($root.addSearchDetails.searchTrip().length-1)===ko.toJS($index)-->
+                                <!--/ko-->
+                                <div class="clearfix"></div>
+
+                                <div class="top-multi travellers-search-form-rows round-way">
+                                    <div class="form-group from-city-value float-left posrel col-lg-4 col-12 col-md-4">
+                                        <input type="text" class="form-control from-city autoSearch" data-key="airport" onclick="this.focus();
+                                                this.select()" data-value="" placeholder="From: City or Airport Code" autocomplete="disabled" data-bind="value: $data.fromCity,attr:{'data-value':$data.fromCity,'data-code':$data.fromCityCode,id:'fromCity_'+ko.toJS($index),name:'fromCity_'+ko.toJS($index),'data-index':ko.toJS($index)}" data-code="" id="fromCity_1" name="fromCity_1" data-index="1">
+                                        <span class="cursor-pointer valueChange">
+                                            <span class="tc-city-arrow"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
+                                        </span>
+                                        <span class="field-error"></span>
+                                    </div>
+
+                                    <div class="form-group to-city-value  float-left col-lg-4 col-12 col-md-4">
+                                        <input type="text" class="form-control to-city autoSearch" data-key="airport" onclick="this.focus();
+                                                this.select()" data-value="" placeholder="To: City or Airport Code" autocomplete="disabled" data-bind="value: $data.toCity,attr:{'data-value':$data.toCity,'data-code':$data.toCityCode,id:'toCity_'+ko.toJS($index),name:'toCity_'+ko.toJS($index),'data-index':ko.toJS($index)}" data-code="" id="toCity_1" name="toCity_1" data-index="1">
+                                        <span class="field-error"></span>
+                                    </div>
+                                    <div class="form-group has-feedback-left float-left posrel col-lg-4 col-12 col-md-4 datetrigger">
+                                        <i class="form-control-feedback depart"></i>
+                                        <input required="required" data-value="" readonly="" placeholder="Depart on" type="text" autocomplete="disabled" data-bind="value: $data.departDate,attr:{'data-value':$data.depart,class:'form-control depart_'+ko.toJS($index),name:'depart_'+ko.toJS($index),'data-index':ko.toJS($index)}" class="form-control depart_1" name="depart_1" data-index="1">
+                                        <input type="text" hidden="" value="" data-bind="value:$data.depart, attr:{id:'depart_'+ko.toJS($index)} " id="depart_1">
+                                        <span class="field-error"></span>
+                                    </div>
+                                </div>
+                                <!-- ko if: $root.addSearchDetails.searchTrip().length>2 && ($root.addSearchDetails.searchTrip().length-1)===ko.toJS($index)-->
+                                <!--/ko-->
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- ko if: $root.addSearchDetails.searchTrip().length<5-->
+                            <p class="add-multi-flight text-right">
+                                <a href="javascript:;" data-bind="click: $root.addNewMultyRow">(+)Add another flight(up to 5)</a>
+                            </p>
+                            <!--/ko-->
+                            <div class="clearfix" style="display: inline-block;"></div>
+                        </div>
+                    </div>
+
+                    <div class="common-btn-div moreOptionMulti" style="width: auto;">
+                        <div class="row">
+                            <div class="form-group multiS">
+                                <div class="dropdown adultsdesk  col-lg-1 col-12">
+                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle travellerDetail" type="button" id="travellerDetail">
+                                        <span class="tc-user float-left"></span> <span class="traveller float-left">1 Adult, Economy</span>
+                                        <span class="caret text-right float-right"></span>
+                                    </button>
+                                    <div class="travellerDetails dropdown-menu">
+                                        <div class="adultscol">
+                                            <div> <a role="menuitem" tabindex="-1" href="#">Adult</a> <span class="age">(+12 years)</span></div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-default btn-number minus infantValidation" disabled="disabled" data-type="minus" data-field="adults">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                                <input type="text" name="adults" readonly="" class="form-control input-number numberOfad" value="1" min="1" max="9">
+                                                <button type="button" class="btn btn-default btn-number plus infantValidation" data-type="plus" data-field="adults">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="adultscol">
+                                            <div> <a role="menuitem" tabindex="-1" href="#">Child</a> <span class="age">(2-11 years)</span></div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-default btn-number minus" disabled="disabled" data-type="minus" data-field="children">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                                <input type="text" name="children" readonly="" class="form-control input-number numberOfch" value="0" min="0" max="9">
+                                                <button type="button" class="btn btn-default btn-number plus" data-type="plus" data-field="children">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="adultscol">
+                                            <div> <a role="menuitem" tabindex="-1" href="#">Infant</a> <span class="age">(below 2 years)</span> </div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-default btn-number minus" disabled="disabled" data-type="minus" data-field="infant">
+                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                </button>
+                                                <input type="text" name="infant" readonly="" class="form-control input-number numberOfinf" value="0" min="0" max="9">
+                                                <button type="button" class="btn btn-default btn-number plus" data-type="plus" data-field="infant">
+                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="travellers_class_details">
+                                            <p class="d-none d-sm-block trav_class_heading">Traveller(s) Class</p>
+                                            <p class="d-inline d-sm-none trav_class_heading">Choose Travel Class</p>
+                                            <label class="radio-inline class-of-travel redio-bottom selected col-sm-6" id="travellers_Economy">
+                                                <input type="radio" class="travellers_choice hide" name="travellers_choice_area" checked="checked" id="E">Economy</label>
+
+                                            <label class="radio-inline class-of-travel redio-bottom col-sm-6" id="travellers_Primium_Economy">
+                                                <input type="radio" class="travellers_choice hide" name="travellers_choice_area" id="P">Premium Economy</label>
+
+                                            <label class="radio-inline class-of-travel redio-bottom col-sm-6" id="travellers_Business">
+                                                <input type="radio" class="travellers_choice hide" name="travellers_choice_area" id="B">Business</label>
+
+                                            <label class="radio-inline class-of-travel redio-bottom col-sm-6" id="travellers_First">
+                                                <input type="radio" class="travellers_choice hide" name="travellers_choice_area" id="F">First</label>
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="hidden-lg hidden-md hidden-sm d-none d-sm-inline mobile-passenger float-left">
+                                    <div class="form-group float-left">
+                                        <p class="pass-label">Adult (+12 years)</p>
+                                        <select name="no_of_adult" id="flight_no_adult">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group float-left">
+                                        <p class="pass-label">Child (2-11 Years)</p>
+                                        <select name="no_of_child" id="flight_no_child">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group float-left">
+                                        <p class="pass-label">Infant (below 2 years)</p>
+                                        <select name="no_of_infant" id="flight_no_infant">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group float-left travlClass hide" data-bind="if: $root.classTrip()==='multi'" style="display: none;"></div>
+
+                            <div class="form-grou d-none d-sm-inline">
+                                <button class="form-control search-button" id="search-button">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="more-button hide" style="display: block;">
+                        <a href="javascript:;" id="moreOptionOp" class=""><i class="icon-toggle glyphicon-menu-down"></i> More options: Class of travel, Airline preference</a>
+                        <div id="moreOption" class="closed moreOption">
+                            <div class="form-group float-left" data-bind="ifnot: $root.classTrip()==='multi'">
+                                <select name="classoftravel" id="classoftravel">
+                                    <option>Class Of Travel</option>
+                                    <option value="E">Economy</option>
+                                    <option value="B">Business</option>
+                                    <option value="P">Premium Economy </option>
+                                    <option value="F">First</option>
+                                </select>
+                            </div>
+                            <div class="form-group float-left pref-airline">
+                                <input type="text" onclick="this.focus();
+                                        this.select()" class="form-control autoSearch" data-key="airline" data-value="" value="" placeholder="Enter airline" id="airline" name="airline">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="student-fare-filter col-12 col-sm-3 hide row">
+
+                        <div class="col-6 col-sm-6 regular-fare active">Regular Fare</div>
+                        <div class="col-6 col-sm-6 student-fare">Student Fare
+                            <div class="stud-fare-hover">
+                                <span class="top-arrow"></span>
+                                <p>Students are eligible for special fares and/or additional baggage allowances on certain airlines. Valid documents and Visas are mandatory.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+            <div class="error-info-wrapper closed" style="display: none;">
+                <p class="error-info"> Sorry, the fields marked in red need your attention, please fix them to continue.</p>
+            </div>
+        </div>
+    </section>
+    <section id="hotels">
+        <h2>Hotel Booking</h2>
+        <div class="flight-search-form">
+            <form class="form-inline" role="form" name="searchForm" id="searchForm" onsubmit="return false;">
+                <input type="hidden" value="1" name="noOfRoom" id="numberOfRoom">
+                <input type="hidden" value="2" name="noOfAdult" id="numberOfAdult">
+                <input type="hidden" value="0" name="noOfChild" id="numberofChild">
+                <div id="flight-search-one">
+                    <div id="flight-search" class="mtop10 round-way">
+                        <div class="row">
+                            <div class="form-group from-city-value float-left posrel col-lg-4 col-md-3 col-sm-3 col-12">
+                                <input tabindex="1" type="text" class="form-control  from-city" autocomplete="off" data-value="" id="find-hotel" placeholder="Where : Enter a City">
+                                <input type="hidden" id="searchHotel" search-type="" search-count="" search-id="">
+                                <span class="field-error"></span>
+                                <div id="hotelAuto" class="typeahead dropdown-menu holiday-autocomplete"></div>
+                            </div>
+                            <div class="form-group has-feedback-left float-left posrel col-lg-2 col-md-2 col-sm-2 col-6">
+                                <i class="form-control-feedback depart tc-calendar"></i>
+                                <input tabindex="2" required="required" class="form-control depart-cal hasDatepicker" id="check-in" readonly="" placeholder="Check In" type="text" data-value="22-03-2024">
+                                <span class="field-error"></span>
+                            </div>
+                            <div class="form-group has-feedback-left float-left posrel col-lg-2 col-md-2 col-sm-2 col-6">
+                                <i class="form-control-feedback returnIcon tc-calendar"></i>
+                                <input tabindex="3" required="required" class="form-control return hasDatepicker" id="check-out" readonly="" placeholder="Check Out" type="text" data-value="23-03-2024">
+                                <span class="field-error"></span>
+                            </div>
+                            <div class="form-group  col-lg-3 col-md-3 col-sm-3 col-12" tabindex="4">
+                                <div class="dropdown adultsdesk">
+                                    <button class="btn btn-default dropdown-toggle travellerDetail" type="button" id="travellerDetail">
+                                        <span class="tc-user hicon float-left"></span>
+                                        <span class="traveller"><i id="guestCount">2</i> <i id="guestcountText">Guest</i> / <i id="roomCount">1</i> <i id="roomcountText">Room</i></span>
+                                        <span class="caret text-right float-right"></span>
+                                    </button>
+                                    <div class="travellerDetails dropdown-menu">
+                                        <div class="guest-room-wrap">
+                                            <div class="addeditBox">
+                                                <div class="f-left user_edit_wrap" data-room="1">
+                                                    <input type="hidden" room="1" adultcount="2" childcount="0" childage1="" childage2="">
+                                                    <h4>
+                                                        <span>Room 1</span>
+                                                        <span class="number_of_customer"><i>2</i> <i>Adult</i> / <i>0</i> <i>Child</i></span>
+                                                        <span class="close-user_edit_wrap float-right tc-closebtn hide"></span>
+                                                        <span class="edit_again float-right tc-edit"></span>
+                                                    </h4>
+                                                    <div class="adultscol_wrapper">
+                                                        <div class="adultscol onlyAdult">
+                                                            <div>
+                                                                <span><a role="menuitem" tabindex="-1" href="#">Adult</a></span>
+                                                                <span class="age">(12+yrs)</span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="button" class="btn btn-default btn-number minus infantValidation" data-type="minus" data-field="adults1">
+                                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                                </button>
+                                                                <input type="text" name="adults1" readonly="" class="form-control input-number numberOfad" value="2" min="1" max="4">
+                                                                <button type="button" class="btn btn-default btn-number plus infantValidation" data-type="plus" data-field="adults1">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="adultscol childrenscol">
+                                                            <div>
+                                                                <span><a role="menuitem" tabindex="-1" href="#">Children</a></span>
+                                                                <span class="age">(0-12 yrs)</span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="button" class="btn btn-default btn-number minus infantValidation" disabled="disabled" data-type="minus" data-field="childrens1">
+                                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                                </button>
+                                                                <input type="text" name="childrens1" readonly="" class="form-control input-number numberOfad" value="0" min="0" max="2">
+                                                                <button type="button" class="btn btn-default btn-number plus infantValidation" data-type="plus" data-field="childrens1">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="user_select_wrap child_age1 hide">
+                                                            <label>
+                                                                <span>Child 1</span>
+                                                                <span>Select age</span>
+                                                            </label>
+                                                            <div>
+                                                                <div class="selectric-wrapper selectric-selectSelectric">
+                                                                    <div class="selectric-hide-select"><select name="child1" class="selectSelectric" tabindex="0">
+                                                                            <option value="0">Under 1</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                        </select></div>
+                                                                    <div class="selectric">
+                                                                        <p class="label">Under 1</p><b class="button">▾</b>
+                                                                    </div>
+                                                                    <div class="selectric-items" tabindex="-1">
+                                                                        <div class="selectric-scroll">
+                                                                            <ul>
+                                                                                <li data-index="0" class="selected">Under 1</li>
+                                                                                <li data-index="1" class="">1</li>
+                                                                                <li data-index="2" class="">2</li>
+                                                                                <li data-index="3" class="">3</li>
+                                                                                <li data-index="4" class="">4</li>
+                                                                                <li data-index="5" class="">5</li>
+                                                                                <li data-index="6" class="">6</li>
+                                                                                <li data-index="7" class="">7</li>
+                                                                                <li data-index="8" class="">8</li>
+                                                                                <li data-index="9" class="">9</li>
+                                                                                <li data-index="10" class="">10</li>
+                                                                                <li data-index="11" class="">11</li>
+                                                                                <li data-index="12" class="last">12</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div><input class="selectric-input" readonly="readonly" tabindex="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="user_select_wrap child_age2 hide">
+                                                            <label>
+                                                                <span>Child 2</span>
+                                                                <span>Select age</span>
+                                                            </label>
+                                                            <div>
+                                                                <div class="selectric-wrapper selectric-selectSelectric">
+                                                                    <div class="selectric-hide-select"><select name="child2" class="selectSelectric" tabindex="0">
+                                                                            <option value="0">Under 1</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                        </select></div>
+                                                                    <div class="selectric">
+                                                                        <p class="label">Under 1</p><b class="button">▾</b>
+                                                                    </div>
+                                                                    <div class="selectric-items" tabindex="-1">
+                                                                        <div class="selectric-scroll">
+                                                                            <ul>
+                                                                                <li data-index="0" class="selected">Under 1</li>
+                                                                                <li data-index="1" class="">1</li>
+                                                                                <li data-index="2" class="">2</li>
+                                                                                <li data-index="3" class="">3</li>
+                                                                                <li data-index="4" class="">4</li>
+                                                                                <li data-index="5" class="">5</li>
+                                                                                <li data-index="6" class="">6</li>
+                                                                                <li data-index="7" class="">7</li>
+                                                                                <li data-index="8" class="">8</li>
+                                                                                <li data-index="9" class="">9</li>
+                                                                                <li data-index="10" class="">10</li>
+                                                                                <li data-index="11" class="">11</li>
+                                                                                <li data-index="12" class="last">12</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div><input class="selectric-input" readonly="readonly" tabindex="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--child_age_wrap closed-->
+                                                </div>
+
+                                            </div>
+                                            <!--addeditBox closed-->
+
+                                            <div class="add_btn_wrap">
+                                                <button type="button" class="add_btn">+ Add Room</button>
+                                                <button type="button" class="done_btn f-right">Done</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <span class="field-error intl-pax-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="form-control search-button" id="search-button"> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+
+                <div class="clearfix"></div>
+            </form>
+
+        </div>
+    </section>
+    <section id="collections">
+        <h2>Package Collections</h2>
+        <div class="collection">
+            <img src="https://res.cloudinary.com/dollmqugm/image/upload/v1710484215/colle2_oxjr76.png" class="pack" alt="package1" />
+            <!-- Add packages belonging to Collection 1 -->
+        </div>
+        <div class="collection">
+            <img src="https://res.cloudinary.com/dollmqugm/image/upload/v1710484542/colle1_j1gngv.png" class="pack" alt="package2" />
+            <!-- Add packages belonging to Collection 2 -->
+        </div>
+        <!-- Add more collections as needed -->
+    </section>
+    <footer>
+        <p>&copy; 2024 Gogaga Holidays. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
